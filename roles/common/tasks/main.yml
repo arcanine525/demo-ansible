@@ -1,0 +1,6 @@
+- name: Install aptitude using apt
+  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+- name: Install necessary package
+  apt: name={{ item }} state=present update_cache=yes
+  loop: ['apt-transport-https', 'git', 'wget', 'curl', 'software-properties-common', 'build-essential', 'unzip', 'htop', 'vnstat']

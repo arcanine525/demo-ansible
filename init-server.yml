@@ -1,0 +1,8 @@
+- name: Create swapfile
+  hosts: all
+  become: True
+  gather_facts: True
+  roles:
+    - common
+    - role: swapfile
+      SWAPFILE_SIZE: 4GB

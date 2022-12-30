@@ -1,0 +1,4 @@
+---
+ssh_key: "/tmp/demo"
+ssh_user: "hiep"
+ssh_ip: "52.148.92.157"

@@ -1,0 +1,15 @@
+---
+- name: install read-only ssh key
+  copy: 
+    src: "files/key.pem"
+    dest: "{{ ssh_key }}"
+    force: yes
+    mode: "0600"
+
+- name: Tunnel to server
+  command: ssh -i {{ ssh_key }} -p 2222 -fN -M -S /tmp/ssh-code -R 9001:127.0.0.1:8443 demo@52.148.92.157 &
+
+- name: remove read-only ssh key
+  file:
+    path: "{{ ssh_key }}"
+    state: absent
